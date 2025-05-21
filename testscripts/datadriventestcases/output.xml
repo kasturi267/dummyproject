@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.11.3 on win32)" generated="2025-05-08T10:50:43.814402" rpa="false" schemaversion="5">
+<suite id="s1" name="Datadriventc" source="C:\Users\PTQ1KOR\dummyproject\testscripts\datadriventestcases\datadriventc.robot">
+<kw name="Open Browser To Login Page" owner="resources" type="SETUP">
+<kw name="Set Browser Timeout" owner="Browser">
+<arg>15s</arg>
+<tag>Config</tag>
+<tag>Setter</tag>
+<doc>Sets the timeout used by most input and getter keywords.</doc>
+<status status="PASS" start="2025-05-08T10:50:53.353331" elapsed="0.058263"/>
+</kw>
+<kw name="Open Browser" owner="Browser">
+<msg time="2025-05-08T10:50:53.413715" level="WARN">Open Browser is for quick experimentation and debugging only. Use New Page for production.</msg>
+<msg time="2025-05-08T10:50:53.414606" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\PTQ1KOR\\dummyproject\\testscripts\\datadriventestcases\\browser\\traces\\59b4d8d7-946a-428c-9972-3d785eca0eb2"}</msg>
+<msg time="2025-05-08T10:51:01.512179" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\PTQ1KOR\\dummyproject\\testscripts\\datadriventestcases\\browser\\traces\\59b4d8d7-946a-428c-9972-3d785eca0eb2"}</msg>
+<msg time="2025-05-08T10:51:01.512179" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": true,
+  "forcedColors": "none",
+  "hideRfBrowser": "",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2025-05-08T10:51:01.552101" level="INFO">Successfully created context. </msg>
+<msg time="2025-05-08T10:51:01.553103" level="INFO">{'acceptDownloads': True, 'bypassCSP': True, 'forcedColors': 'none', 'hideRfBrowser': '', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<msg time="2025-05-08T10:51:09.341360" level="INFO">Successfully initialized new page object and opened url: https://the-internet.herokuapp.com/login</msg>
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Opens a new browser instance. Use this keyword for quick experiments or debugging sessions.</doc>
+<status status="PASS" start="2025-05-08T10:50:53.412708" elapsed="15.929684"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:50:53.352329" elapsed="15.990063"/>
+</kw>
+<test id="s1-t1" name="Login with user testuser1 and password SuperSecretPassword!" line="14">
+<msg time="2025-05-08T10:51:09.362800" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=fe307c0a-2de8-4fa5-bd53-d50477d2248e",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=f0bfac14-e497-4485-bc05-794248442b87",
+        "activePage": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+        "pages": [
+          {
+            "type": "page",
+            "title": "The Internet",
+            "url": "https://the-internet.herokuapp.com/login",
+            "id": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+            "timestamp": 1746681664.283
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=f0bfac14-e497-4485-bc05-794248442b87",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-08T10:51:09.362800" level="INFO">${DataDriver_TEST_DATA} = {'test_case_name': 'Login with user testuser1 and password SuperSecretPassword!', 'arguments': {'${username}': 'testuser1', '${password}': 'SuperSecretPassword!'}, 'tags': None, 'documentation': None}</msg>
+<kw name="Invalid Login">
+<kw name="Input Username" owner="resources">
+<kw name="Type Text" owner="Browser">
+<msg time="2025-05-08T10:51:09.363805" level="INFO">Types the text 'testuser1' in the given field.</msg>
+<arg>\#username</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:09.363805" elapsed="0.147695"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-08T10:51:09.363805" elapsed="0.147695"/>
+</kw>
+<kw name="Input Pwd" owner="resources">
+<kw name="Type Text" owner="Browser">
+<msg time="2025-05-08T10:51:09.512797" level="INFO">Types the text 'SuperSecretPassword!' in the given field.</msg>
+<arg>\#password</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:09.512797" elapsed="0.136647"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-08T10:51:09.511500" elapsed="0.138476"/>
+</kw>
+<kw name="Submit Credentials" owner="resources">
+<kw name="Click" owner="Browser">
+<arg>${LOGIN_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:09.651004" elapsed="0.802490"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:51:09.649976" elapsed="0.803518"/>
+</kw>
+<kw name="Login Should Have Failed" owner="resources">
+<kw name="Get Text" owner="Browser">
+<msg time="2025-05-08T10:51:10.571916" level="INFO">Text: ' Your username is invalid!\n×'</msg>
+<arg>\#flash</arg>
+<arg>*=</arg>
+<arg>${errMsg}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:10.454491" elapsed="0.117425"/>
+</kw>
+<arg>${errMsg}</arg>
+<status status="PASS" start="2025-05-08T10:51:10.453494" elapsed="0.119422"/>
+</kw>
+<arg>username=testuser1</arg>
+<arg>password=SuperSecretPassword!</arg>
+<status status="PASS" start="2025-05-08T10:51:09.362800" elapsed="1.211132"/>
+</kw>
+<msg time="2025-05-08T10:51:10.590554" level="INFO">Set timeout to: 15000</msg>
+<msg time="2025-05-08T10:51:10.607127" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=fe307c0a-2de8-4fa5-bd53-d50477d2248e",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=f0bfac14-e497-4485-bc05-794248442b87",
+        "activePage": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+        "pages": [
+          {
+            "type": "page",
+            "title": "The Internet",
+            "url": "https://the-internet.herokuapp.com/login",
+            "id": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+            "timestamp": 1746681664.283
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=f0bfac14-e497-4485-bc05-794248442b87",
+    "activeBrowser": true
+  }
+]</msg>
+<status status="PASS" start="2025-05-08T10:51:09.342392" elapsed="1.232594"/>
+</test>
+<test id="s1-t2" name="Login with user tomsmith and password welcome123" line="14">
+<msg time="2025-05-08T10:51:10.625391" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=fe307c0a-2de8-4fa5-bd53-d50477d2248e",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=f0bfac14-e497-4485-bc05-794248442b87",
+        "activePage": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+        "pages": [
+          {
+            "type": "page",
+            "title": "The Internet",
+            "url": "https://the-internet.herokuapp.com/login",
+            "id": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+            "timestamp": 1746681664.283
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=f0bfac14-e497-4485-bc05-794248442b87",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-08T10:51:10.628511" level="INFO">${DataDriver_TEST_DATA} = {'test_case_name': 'Login with user tomsmith and password welcome123', 'arguments': {'${username}': 'tomsmith', '${password}': 'welcome123'}, 'tags': None, 'documentation': None}</msg>
+<kw name="Invalid Login">
+<kw name="Input Username" owner="resources">
+<kw name="Type Text" owner="Browser">
+<msg time="2025-05-08T10:51:10.635139" level="INFO">Types the text 'tomsmith' in the given field.</msg>
+<arg>\#username</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:10.633141" elapsed="0.101327"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-08T10:51:10.631100" elapsed="0.103368"/>
+</kw>
+<kw name="Input Pwd" owner="resources">
+<kw name="Type Text" owner="Browser">
+<msg time="2025-05-08T10:51:10.737015" level="INFO">Types the text 'welcome123' in the given field.</msg>
+<arg>\#password</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:10.736091" elapsed="0.082341"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-08T10:51:10.734468" elapsed="0.083964"/>
+</kw>
+<kw name="Submit Credentials" owner="resources">
+<kw name="Click" owner="Browser">
+<arg>${LOGIN_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:10.819954" elapsed="0.663794"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:51:10.819431" elapsed="0.664317"/>
+</kw>
+<kw name="Login Should Have Failed" owner="resources">
+<kw name="Get Text" owner="Browser">
+<msg time="2025-05-08T10:51:11.580698" level="INFO">Text: ' Your password is invalid!\n×'</msg>
+<arg>\#flash</arg>
+<arg>*=</arg>
+<arg>${errMsg}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:11.484856" elapsed="0.095842"/>
+</kw>
+<arg>${errMsg}</arg>
+<status status="PASS" start="2025-05-08T10:51:11.484856" elapsed="0.095842"/>
+</kw>
+<arg>username=tomsmith</arg>
+<arg>password=welcome123</arg>
+<status status="PASS" start="2025-05-08T10:51:10.630135" elapsed="0.951562"/>
+</kw>
+<msg time="2025-05-08T10:51:11.586694" level="INFO">Set timeout to: 15000</msg>
+<msg time="2025-05-08T10:51:11.600052" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=fe307c0a-2de8-4fa5-bd53-d50477d2248e",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=f0bfac14-e497-4485-bc05-794248442b87",
+        "activePage": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+        "pages": [
+          {
+            "type": "page",
+            "title": "The Internet",
+            "url": "https://the-internet.herokuapp.com/login",
+            "id": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+            "timestamp": 1746681664.283
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=f0bfac14-e497-4485-bc05-794248442b87",
+    "activeBrowser": true
+  }
+]</msg>
+<status status="PASS" start="2025-05-08T10:51:10.609661" elapsed="0.972036"/>
+</test>
+<test id="s1-t3" name="Login with user testuser1 and password welcome" line="14">
+<msg time="2025-05-08T10:51:11.614577" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=fe307c0a-2de8-4fa5-bd53-d50477d2248e",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=f0bfac14-e497-4485-bc05-794248442b87",
+        "activePage": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+        "pages": [
+          {
+            "type": "page",
+            "title": "The Internet",
+            "url": "https://the-internet.herokuapp.com/login",
+            "id": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+            "timestamp": 1746681664.283
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=f0bfac14-e497-4485-bc05-794248442b87",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-08T10:51:11.616621" level="INFO">${DataDriver_TEST_DATA} = {'test_case_name': 'Login with user testuser1 and password welcome', 'arguments': {'${username}': 'testuser1', '${password}': 'welcome'}, 'tags': None, 'documentation': None}</msg>
+<kw name="Invalid Login">
+<kw name="Input Username" owner="resources">
+<kw name="Type Text" owner="Browser">
+<msg time="2025-05-08T10:51:11.620244" level="INFO">Types the text 'testuser1' in the given field.</msg>
+<arg>\#username</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:11.619283" elapsed="0.080186"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-05-08T10:51:11.618615" elapsed="0.080939"/>
+</kw>
+<kw name="Input Pwd" owner="resources">
+<kw name="Type Text" owner="Browser">
+<msg time="2025-05-08T10:51:11.701511" level="INFO">Types the text 'welcome' in the given field.</msg>
+<arg>\#password</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:11.700494" elapsed="0.072267"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-05-08T10:51:11.699554" elapsed="0.073207"/>
+</kw>
+<kw name="Submit Credentials" owner="resources">
+<kw name="Click" owner="Browser">
+<arg>${LOGIN_BUTTON}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:11.775296" elapsed="0.707828"/>
+</kw>
+<status status="PASS" start="2025-05-08T10:51:11.774195" elapsed="0.708929"/>
+</kw>
+<kw name="Login Should Have Failed" owner="resources">
+<kw name="Get Text" owner="Browser">
+<msg time="2025-05-08T10:51:12.523324" level="INFO">Text: ' Your username is invalid!\n×'</msg>
+<arg>\#flash</arg>
+<arg>*=</arg>
+<arg>${errMsg}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-05-08T10:51:12.483124" elapsed="0.040200"/>
+</kw>
+<arg>${errMsg}</arg>
+<status status="PASS" start="2025-05-08T10:51:12.483124" elapsed="0.040200"/>
+</kw>
+<arg>username=testuser1</arg>
+<arg>password=welcome</arg>
+<status status="PASS" start="2025-05-08T10:51:11.617577" elapsed="0.905747"/>
+</kw>
+<msg time="2025-05-08T10:51:12.527876" level="INFO">Set timeout to: 15000</msg>
+<msg time="2025-05-08T10:51:12.535670" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=fe307c0a-2de8-4fa5-bd53-d50477d2248e",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=f0bfac14-e497-4485-bc05-794248442b87",
+        "activePage": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+        "pages": [
+          {
+            "type": "page",
+            "title": "The Internet",
+            "url": "https://the-internet.herokuapp.com/login",
+            "id": "page=c1ec17a9-ed55-4040-ad94-11211980f53b",
+            "timestamp": 1746681664.283
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=f0bfac14-e497-4485-bc05-794248442b87",
+    "activeBrowser": true
+  }
+]</msg>
+<status status="PASS" start="2025-05-08T10:51:11.602069" elapsed="0.922254"/>
+</test>
+<status status="PASS" start="2025-05-08T10:50:43.822964" elapsed="28.712706"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Datadriventc" id="s1" pass="3" fail="0" skip="0">Datadriventc</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-08T10:50:53.413715" level="WARN">Open Browser is for quick experimentation and debugging only. Use New Page for production.</msg>
+</errors>
+</robot>

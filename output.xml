@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.11.3 on win32)" generated="2025-05-19T10:17:58.409586" rpa="false" schemaversion="5">
+<suite id="s1" name="GeolocationTc" source="c:\Users\PTQ1KOR\dummyproject\testscripts\GeolocationTc.robot">
+<test id="s1-t1" name="Geolocation Test" line="7">
+<msg time="2025-05-19T10:18:04.892860" level="INFO">[]</msg>
+<kw name="New Browser" owner="Browser">
+<msg time="2025-05-19T10:18:05.013231" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\PTQ1KOR\\dummyproject\\browser\\traces\\41f97b29-7c2a-4a06-82b9-42943c2a44e4"}</msg>
+<msg time="2025-05-19T10:18:09.862298" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\PTQ1KOR\\dummyproject\\browser\\traces\\41f97b29-7c2a-4a06-82b9-42943c2a44e4"}</msg>
+<arg>chromium</arg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-05-19T10:18:05.006669" elapsed="4.856245"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-05-19T10:18:09.908660" level="INFO">${permissions} = ['geolocation']</msg>
+<var>${permissions}</var>
+<arg>geolocation</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-05-19T10:18:09.906663" elapsed="0.003005"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2025-05-19T10:18:09.966276" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "hideRfBrowser": "",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "permissions": [
+    "geolocation"
+  ],
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "height": 720,
+    "width": 1280
+  }
+}</msg>
+<msg time="2025-05-19T10:18:10.060298" level="INFO">Successfully created context. </msg>
+<msg time="2025-05-19T10:18:10.061297" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'hideRfBrowser': '', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'permissions': ['geolocation'], 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 720, 'width': 1280}}</msg>
+<arg>permissions=${permissions}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-05-19T10:18:09.962508" elapsed="0.099389"/>
+</kw>
+<kw name="Set Geolocation" owner="Browser">
+<msg time="2025-05-19T10:18:10.077424" level="INFO">{"latitude": 33.748997, "longitude": -84.387985, "accuracy": 100.0}</msg>
+<msg time="2025-05-19T10:18:10.103085" level="INFO">Geolocation set to: {"latitude":33.748997,"longitude":-84.387985,"accuracy":100}</msg>
+<arg>33.748997</arg>
+<arg>-84.387985</arg>
+<arg>100</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Updated the correct Context's geolocation.</doc>
+<status status="PASS" start="2025-05-19T10:18:10.074822" elapsed="0.029768"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-05-19T10:18:22.304887" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-05-19T10:18:22.305905" level="INFO">See also file:///C:/Users/PTQ1KOR/dummyproject/playwright-log.txt for additional details.</msg>
+<msg time="2025-05-19T10:18:22.306902" level="FAIL">TimeoutError: page.goto: Timeout 10000ms exceeded.
+=========================== logs ===========================
+navigating to "https://oldnavy.gap.com/stores", waiting until "load"
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</msg>
+<arg>https://oldnavy.gap.com/stores</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2025-05-19T10:18:10.156995" elapsed="12.171156">TimeoutError: page.goto: Timeout 10000ms exceeded.
+=========================== logs ===========================
+navigating to "https://oldnavy.gap.com/stores", waiting until "load"
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-05-19T10:18:22.330151" elapsed="0.000000"/>
+</kw>
+<kw name="Get Elements" owner="Browser">
+<var>${storeList}</var>
+<arg>//div[contains(text(), 'Atlanta')]</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to Playwright [https://playwright.dev/docs/api/class-locator|Locator]
+for all matched elements by ``selector``.</doc>
+<status status="NOT RUN" start="2025-05-19T10:18:22.332258" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${storeList}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T10:18:22.334297" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<var>${storeCount}</var>
+<arg>${storeList}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" start="2025-05-19T10:18:22.335518" elapsed="0.001027"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${storeCount}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T10:18:22.337850" elapsed="0.001057"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${storeCount} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" start="2025-05-19T10:18:22.339913" elapsed="0.000000"/>
+</kw>
+<msg time="2025-05-19T10:18:22.352271" level="INFO">Set timeout to: 10000</msg>
+<msg time="2025-05-19T10:18:22.360228" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=c4be4651-5147-46d1-8adb-6d40e56dcbab",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+        "pages": []
+      }
+    ],
+    "activeContext": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-19T10:18:22.361426" level="INFO">Switching context to context=6248db92-0b1f-4aa7-bed5-2b7313d86087 in CURRENT</msg>
+<msg time="2025-05-19T10:18:22.372067" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=c4be4651-5147-46d1-8adb-6d40e56dcbab",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+        "pages": []
+      }
+    ],
+    "activeContext": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-19T10:18:22.381829" level="INFO">Successfully changed active context: context=6248db92-0b1f-4aa7-bed5-2b7313d86087</msg>
+<msg time="2025-05-19T10:18:22.391173" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=c4be4651-5147-46d1-8adb-6d40e56dcbab",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+        "pages": []
+      }
+    ],
+    "activeContext": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-19T10:18:22.391244" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-05-19T10:18:22.400794" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-05-19T10:18:22.401931" level="INFO">Switching browser to browser=c4be4651-5147-46d1-8adb-6d40e56dcbab</msg>
+<msg time="2025-05-19T10:18:22.411095" level="INFO">Successfully changed active browser: browser=c4be4651-5147-46d1-8adb-6d40e56dcbab</msg>
+<msg time="2025-05-19T10:18:22.412094" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-05-19T10:18:22.419329" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-05-19T10:18:22.421331" level="INFO">Switching context to context=6248db92-0b1f-4aa7-bed5-2b7313d86087 in CURRENT</msg>
+<msg time="2025-05-19T10:18:22.436502" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=c4be4651-5147-46d1-8adb-6d40e56dcbab",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+        "pages": []
+      }
+    ],
+    "activeContext": "context=6248db92-0b1f-4aa7-bed5-2b7313d86087",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-05-19T10:18:22.445579" level="INFO">Successfully changed active context: context=6248db92-0b1f-4aa7-bed5-2b7313d86087</msg>
+<msg time="2025-05-19T10:18:22.641043" level="INFO">Successfully closed Context</msg>
+<status status="FAIL" start="2025-05-19T10:18:04.881298" elapsed="17.459846">TimeoutError: page.goto: Timeout 10000ms exceeded.
+=========================== logs ===========================
+navigating to "https://oldnavy.gap.com/stores", waiting until "load"
+============================================================
+Tip: Use "Set Browser Timeout" for increasing the timeout or double check your locator as the targeted element(s) couldn't be found.</status>
+</test>
+<status status="FAIL" start="2025-05-19T10:17:58.441243" elapsed="24.206583"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="GeolocationTc" id="s1" pass="0" fail="1" skip="0">GeolocationTc</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

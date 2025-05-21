@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.11.3 on win32)" generated="2025-05-19T13:12:26.874590" rpa="false" schemaversion="5">
+<suite id="s1" name="Postrequestsample" source="C:\Users\PTQ1KOR\dummyproject\testscripts\postrequestsample.robot">
+<test id="s1-t1" name="Post_Request" line="11">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-19T13:12:27.357821" level="INFO">Creating Session using : alias=myPostSess, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>myPostSess</arg>
+<arg>${base_url}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-19T13:12:27.356767" elapsed="0.985208"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-19T13:12:28.342554" level="INFO">&amp;{body} = { title=foo | body=bar | userId=9000 }</msg>
+<var>&amp;{body}</var>
+<arg>title=foo</arg>
+<arg>body=bar</arg>
+<arg>userId=9000</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-19T13:12:28.342554" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T13:12:28.343666" level="INFO">{'title': 'foo', 'body': 'bar', 'userId': '9000'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T13:12:28.343666" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-19T13:12:28.343666" level="INFO">&amp;{header} = { Cache-Control=no-cache }</msg>
+<var>&amp;{header}</var>
+<arg>Cache-Control=no-cache</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-19T13:12:28.343666" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-19T13:12:28.375187" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /posts</msg>
+<msg time="2025-05-19T13:12:28.594800" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /posts</msg>
+<msg time="2025-05-19T13:12:29.016009" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /posts</msg>
+<msg time="2025-05-19T13:12:29.032509" level="FAIL">ProxyError: HTTPSConnectionPool(host='jsonplaceholder.typicode.com', port=443): Max retries exceeded with url: /posts (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))</msg>
+<var>${response}</var>
+<arg>myPostSess</arg>
+<arg>/posts</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-05-19T13:12:28.344684" elapsed="0.698395">ProxyError: HTTPSConnectionPool(host='jsonplaceholder.typicode.com', port=443): Max retries exceeded with url: /posts (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.044094" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.044094" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.044094" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${status_code}</arg>
+<arg>201</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.044094" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<var>${id}</var>
+<arg>${response.json()}</arg>
+<arg>id</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.044094" elapsed="0.000000"/>
+</kw>
+<kw name="Get From List" owner="Collections">
+<var>${idFromList}</var>
+<arg>${id}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.044094" elapsed="0.000000"/>
+</kw>
+<kw name="Convert To String" owner="BuiltIn">
+<var>${idFromListAsString}</var>
+<arg>${idFromList}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.045103" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${idFromListAsString}</arg>
+<arg>101</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:29.045103" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-05-19T13:12:27.355775" elapsed="1.689328">ProxyError: HTTPSConnectionPool(host='jsonplaceholder.typicode.com', port=443): Max retries exceeded with url: /posts (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))</status>
+</test>
+<test id="s1-t2" name="Post_RequestWithBearerToken" line="32">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-19T13:12:29.046106" level="INFO">Creating Session using : alias=myPostSess, url=https://gorest.co.in/public-api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>myPostSess</arg>
+<arg>${url}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-19T13:12:29.046106" elapsed="0.721494"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-19T13:12:29.768609" level="INFO">&amp;{body} = { name=TestAutomation123 | gender=female | email=x1y1z1@example.com }</msg>
+<var>&amp;{body}</var>
+<arg>name=TestAutomation123</arg>
+<arg>gender=female</arg>
+<arg>email=x1y1z1@example.com</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-19T13:12:29.767600" elapsed="0.001009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-19T13:12:29.768609" level="INFO">{'name': 'TestAutomation123', 'gender': 'female', 'email': 'x1y1z1@example.com'}</msg>
+<arg>${body}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-19T13:12:29.768609" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-19T13:12:29.769584" level="INFO">&amp;{header} = { authorization=Bearer b8c872237c14c3cd079cbcecf302025 }</msg>
+<var>&amp;{header}</var>
+<arg>authorization=Bearer b8c872237c14c3cd079cbcecf302025</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-19T13:12:29.768609" elapsed="0.000975"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-05-19T13:12:30.058479" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /public-api/users</msg>
+<msg time="2025-05-19T13:12:30.282559" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /public-api/users</msg>
+<msg time="2025-05-19T13:12:30.695407" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /public-api/users</msg>
+<msg time="2025-05-19T13:12:30.723199" level="FAIL">ProxyError: HTTPSConnectionPool(host='gorest.co.in', port=443): Max retries exceeded with url: /public-api/users (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))</msg>
+<var>${response}</var>
+<arg>myPostSess</arg>
+<arg>/users</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-05-19T13:12:29.769584" elapsed="0.955615">ProxyError: HTTPSConnectionPool(host='gorest.co.in', port=443): Max retries exceeded with url: /public-api/users (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:30.726199" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:30.726199" elapsed="0.000000"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<var>${getHeaderValue}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:30.726199" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${getHeaderValue}</arg>
+<arg>application/json; charset=utf-8</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2025-05-19T13:12:30.726199" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-05-19T13:12:29.045103" elapsed="1.681096">ProxyError: HTTPSConnectionPool(host='gorest.co.in', port=443): Max retries exceeded with url: /public-api/users (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 407 Proxy Authentication Required')))</status>
+</test>
+<status status="FAIL" start="2025-05-19T13:12:26.879615" elapsed="3.847584"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Postrequestsample" id="s1" pass="0" fail="2" skip="0">Postrequestsample</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-05-19T13:12:28.375187" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /posts</msg>
+<msg time="2025-05-19T13:12:28.594800" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /posts</msg>
+<msg time="2025-05-19T13:12:29.016009" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /posts</msg>
+<msg time="2025-05-19T13:12:30.058479" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /public-api/users</msg>
+<msg time="2025-05-19T13:12:30.282559" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /public-api/users</msg>
+<msg time="2025-05-19T13:12:30.695407" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'OSError('Tunnel connection failed: 407 Proxy Authentication Required')': /public-api/users</msg>
+</errors>
+</robot>
