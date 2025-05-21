@@ -19,7 +19,7 @@ Select Product Test
     Check Items Listed in Cart
     Remove Items
 
-Confirm Order Test
+Confirm Order Test in demo url
     Run Keyword If    Check Items Listed in Cart    Add Item to Cart
     Checkout Items
     Provide User Details
